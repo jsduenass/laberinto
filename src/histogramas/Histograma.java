@@ -5,27 +5,10 @@ import becker.robots.*;
 public class Histograma {
     
     private Robot robot;
-    private City bta;
-    private Thing []punto;
+    private Patron patron;
 
-    public Histograma() {
-        bta = new City();
-        punto= new Thing[15];
-        robot= new Robot(bta,0,1,Direction.SOUTH);
-        punto[0]= new Thing(bta,1,1);
-        punto[1]= new Thing(bta,1,1);
-        punto[2]= new Thing(bta,1,1);
-        punto[3]= new Thing(bta,2,1);
-        punto[4]= new Thing(bta,2,1);
-        punto[5]= new Thing(bta,3,1);
-        punto[6]= new Thing(bta,3,1);
-        punto[7]= new Thing(bta,3,1);
-        punto[8]= new Thing(bta,3,1);
-        punto[9]= new Thing(bta,3,1);
-        punto[10]= new Thing(bta,4,1);
-        punto[11]= new Thing(bta,4,1);
-        punto[12]= new Thing(bta,4,1);
-        punto[13]= new Thing(bta,4,1);
+    public Histograma(Patron patron) {
+        robot= new Robot(patron.getBta(),0,1,Direction.SOUTH);
     }
     
     public void repartir(){
