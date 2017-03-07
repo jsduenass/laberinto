@@ -9,9 +9,9 @@ public class Organizador extends Robot {
     private int[] columna;
 
     public Organizador(Campo city) {
-        super(city, 2, 11, Direction.EAST);
-        this.numColumnas = 0;
-        this.columna = new int[10];
+        super(city, 11, 2, Direction.EAST);
+        this.numColumnas = 10;
+        this.columna = new int[this.numColumnas];
     }
 
     public int getNumColumnas() {
@@ -65,7 +65,15 @@ public class Organizador extends Robot {
         while(this.canPickThing() && contador <= 10){
             this.LeerColumna(contador);
             //recorre todo el campo recogiendo cada columna
+            contador++;
         }
+        //empieza a devolverse
+        this.setNumColumnas(contador);
+        int[] col = new int[this.numColumnas];
+        System.arraycopy(this.columna, 0, col, 0, contador);
+        this.setColumna(col);
+        this.setLabel("numcol: " + this.getNumColumnas());
+        //se pone llena el atriuto de columna
         this.turnLeft();
         this.turnLeft();
         for (int i = 0; i<contador; i++){
@@ -75,46 +83,38 @@ public class Organizador extends Robot {
         this.turnLeft();
         this.turnLeft(); 
         //se vuelce a orientar a la posición de inicio
-        this.setNumColumnas(contador);
-        int[] col = new int[this.numColumnas];
-        System.arraycopy(this.columna, 0, col, 0, contador);
-        this.setColumna(col);
+        
     }
     
-    public void OrdenarCol (int Left, int Right) {
-        int i = Left, j = Right;
-        int temp;
-        int referencia = this.columna[(Left+Right)/2];
-        
-        //partición
-        
-        while (i<=j){
-            while (this.columna[i] < referencia) i++;
-            while (this.columna[j] > referencia) j++;
-            if(i<=j){
-                temp            = this.columna[i];
-                this.columna[i] = this.columna[j];
-                this.columna[j] = temp;
+    public void quickSort(int arr[], int left, int right) {
+        int i = left, j = right;
+        int tmp;
+        int pivot = arr[(left + right) / 2];
+
+        /* partition */
+        while (i <= j) {
+            while (arr[i] < pivot) i++;
+            while (arr[j] > pivot) j--;
+            if (i <= j) {
+                tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
                 i++;
-                j++;
+                j--;
             }
         }
-        
-        //recursividad
-        
-        if (Left < j){
-            OrdenarCol(Left, j);
-        }
-        if (i < Right){
-            OrdenarCol(i, Right);
-        }
+ 
+        /* recursion */
+        if (left < j) quickSort(arr, left, j);
+        if (i < right) quickSort(arr, i, right);
     }
     
     public void OrdenarColumnas () {
-        this.OrdenarCol(0, numColumnas-1);        
+        this.quickSort(this.columna, 0, this.columna.length-1);        
     }
     
     public void ponerColumna (int columna){
+        this.setLabel("# "+this.columna[columna]);
         this.turnLeft();
         for (int i = 0; i < this.columna[columna]; i++){
             this.putThing();
@@ -149,5 +149,6 @@ public class Organizador extends Robot {
         this.LeerCampo();
         this.OrdenarColumnas();
         this.ponerCampo();
+        this.setLabel("Se acabó");
     }
 }
