@@ -7,7 +7,7 @@ public class Cuarto {
     
     private City city = new City();
     private Wall[] pared = new Wall[46];
-    private Thing[] barriles = new Thing[96]; 
+    private Thing[] barriles = new Thing[100]; 
 
     public Cuarto() {
         for(int i = 0; i < 11; i++){
@@ -43,10 +43,16 @@ public class Cuarto {
             for(int o = 0; o < 5; o++){
                 barriles[25+o+(5*m)] = new Thing(city, m+1, 7+o);
             }
-            /*for(int p = 0; p < 5; p++){
-            if(p!=4&&m!=)
-            barriles[50+p+(5*m)] = new Thing(city, 7+m, p+7);
-            }*/
+            for(int p = 0; p < 5; p++){
+                if((p!=4||m!=3)&&(p!=4||m!=4)&&(p!=3||m!=4)){
+                barriles[50+p+(5*m)] = new Thing(city, 7+m, p+7);
+                }
+            }
+            for (int q = 0; q < 5; q++) {
+                if(q!=4||m!=2){
+                barriles[75+q+(5*m)] = new Thing(city, 7+m, q+1);
+                }
+            }
         }
     }
 
