@@ -20,26 +20,27 @@ public class movimiento {
     
     
     
-     public void mover(Robot robot,int n){
+     public void mover(int n){
        for (int i=0;i<n;i++){
            robot.move();
         }
     }
      
-    public  void right(Robot robot){
-     robot.turnLeft();
-     robot.turnLeft();
-     robot.turnLeft();
-   }
-    public void left(Robot robot){
-     robot.turnLeft();
-   }
-   public void see(Robot robot){
+   
+    public void right (){
+       for(int i=0; i<3; i++)robot.turnLeft();
+    }
+    
+    public void left (){
+        robot.turnLeft();   
+    }
+   public void resolver_lab(){
+       this.mover(1);
        for (int i=0; i<1;i--){
            
        if (robot.frontIsClear()){
-           this.mover(robot, 1);
-        } else{ this.left(robot);}
+           this.mover(1);
+        } else{ this.left();}
     }
    }
        

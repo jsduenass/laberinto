@@ -16,24 +16,24 @@ public class laberinto {
     public static void main(String[] args) throws InterruptedException
    {  
      // Set up the initial situation
-       int n=2;
-      int m=3;
+      int n=0;
+      int m=2;
+      int j_entrada;
+      n++;m++;
 
       
       City prague = new City();
      
-      Robot karel = new Robot(prague, n, m, Direction.EAST,5);
-     estructuras laberinto= new estructuras(n,m,prague);
-      laberinto.laberinto();
-      movimiento mover= new movimiento(karel);
       
-      board tablero =new board (prague);
-      tablero.insert_random();
-     
-      mover.see(karel);
-     
       
-      System.out.println(karel.countThingsInBackpack());
+     Estructura laberinto= new Estructura (prague,n,m,10,10);
+     j_entrada=laberinto.getJ_entrada();
+     laberinto.marco();
+     Robot karel = new Robot(prague, n-1, m+j_entrada+1, Direction.SOUTH,5);
+     
+    movimiento mover= new movimiento(karel);
+    mover.resolver_lab();
+      
    }
 
    
