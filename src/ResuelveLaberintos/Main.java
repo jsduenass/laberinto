@@ -14,14 +14,14 @@ import java.util.*;
  */
 public class Main {  
         
-    public static void main(String[] args) {
+    public static void main(String[] args) { //aasadsdf
         
         for (int i = 0; i < 5; i++) {
             Random rand = new Random();
             
             int max = 18;
-            int numCalles = rand.nextInt(max) + 2;
-            int numAvenidas = rand.nextInt(max) + 2;
+            int numCalles = rand.nextInt(max) +2;
+            int numAvenidas = rand.nextInt(max) +2;
             double twistines = rand.nextDouble();
             double ramificacion = rand.nextDouble();
             
