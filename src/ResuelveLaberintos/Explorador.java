@@ -15,12 +15,12 @@ public class Explorador extends Robot {
     
     
       /**
- * Explorador
+ * Constructor
  * descripcion
- * @param city descripcion
+ * @param city determina en que ciudad se la funcion
  * @param i
  * @param i1 
- * @param drctn
+ * @param drctn determnina la direccion incial del robot
  */
     public Explorador(City city, int i, int i1, Direction drctn) {
         super(city, i, i1, drctn, 1);
@@ -29,7 +29,7 @@ public class Explorador extends Robot {
 
      /**
  * turnRight
- * descripcion
+ * Robot gira a la derecha
  */
     public void turnRight () {
         this.turnLeft();
@@ -39,7 +39,7 @@ public class Explorador extends Robot {
     
  /**
  * rightIsClear
- * descripcion
+ * dermina si existe una pared al lado derecho del robot
  */    
     public boolean rightIsClear () {
         boolean libre = true;
@@ -61,8 +61,11 @@ public class Explorador extends Robot {
         }
         return libre;
     }
-    
-    private void hacerMovimineto () {
+  /**
+ * hacerMovimiento
+ * determina  el movimiento del robot,si debe avanzar,girar a la derecha o girar a la izquierda
+ */
+    private void hacerMovimiento () {
         if (this.rightIsClear()) {
             //si no tiene pared a la derecha gira a la derecha
             this.turnRight();
@@ -75,11 +78,14 @@ public class Explorador extends Robot {
             this.turnLeft();
         }
     }
-    
+    /**
+ * ResolverLaberinto
+ * recorre el laberinto guiandose por la pared derecha
+ */ 
     public void ResolverLaberinto () {
 //        this.putThing();
         do {
-            this.hacerMovimineto();
+            this.hacerMovimiento();
         }while(!this.canPickThing());
         this.setLabel("Easy");
     }

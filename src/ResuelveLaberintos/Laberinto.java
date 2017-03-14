@@ -17,7 +17,7 @@ public class Laberinto extends MazeCity {
 
     private Thing salida;
     /**
- * Laberinto
+ * constructor
  * descripcion
  * @param i  descripcion
  * @param i1 
@@ -41,8 +41,7 @@ public class Laberinto extends MazeCity {
     }
 
       /**
- * setSalida
- * descripcion
+ *setSalida 
  */
     public void setSalida(Thing salida) {
         this.salida = salida;

@@ -20,12 +20,12 @@ public class Main {
     
     /**
  *main
- * descripcion
+ * genera un ciclo que permite probar el robot resuelve laberintos  en 5 laberintos diferentes
  * 
  */    
     public static void main(String[] args) { 
         
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 3; i++) {
             Random rand = new Random();
             
             int max = 18;
