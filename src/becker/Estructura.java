@@ -14,8 +14,8 @@ public class Estructura {
     City city;
     int n;
     int m;
-    int largo;
     int alto;
+    int largo;
     int c=0;
     int j_salida;
     int j_entrada;
@@ -25,7 +25,7 @@ public class Estructura {
     
     
 
-    public Estructura(City city, int n, int m, int largo, int alto) {
+    public Estructura(City city, int n, int m, int alto, int largo) {
         this.city = city;
         this.n = n;
         this.m = m;

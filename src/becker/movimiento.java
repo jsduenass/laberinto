@@ -36,10 +36,11 @@ public class movimiento {
     }
    public void resolver_lab(){
        this.mover(1);
+      
        for (int i=0; i<1;i--){
            
        if (robot.frontIsClear()){
-           this.mover(1);
+            this.mover(1);   
         } else{ this.left();}
     }
    }
