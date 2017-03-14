@@ -15,14 +15,14 @@ import java.util.*;
  * @version 1.0
  * @see ResuelveLaberintos.Laberinto 
  * @see ResuelveLaberintos.Explorador
- * @param max descripcion
- * @param numCalles 
- * @param numAvenidas 
- * @param twistines 
- * @param ramificacion
  */
-public class Main {  
-        
+public class Main {     
+    
+    /**
+ *main
+ * descripcion
+ * 
+ */    
     public static void main(String[] args) { 
         
         for (int i = 0; i < 5; i++) {

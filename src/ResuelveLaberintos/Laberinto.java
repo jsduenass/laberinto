@@ -13,8 +13,17 @@ import java.awt.Color;
  * @author Bencardino Perdomo
  */
 public class Laberinto extends MazeCity {
+    
 
     private Thing salida;
+    /**
+ * Laberinto
+ * descripcion
+ * @param i  descripcion
+ * @param i1 
+ * @param d
+ * @param d1
+ */
 
     public Laberinto(int i, int i1, double d, double d1) {
         super(i, i1, d, d1);
@@ -22,10 +31,19 @@ public class Laberinto extends MazeCity {
         this.salida.setColor(Color.BLUE);
     }
 
+      /**
+ * getSalida
+ * descripcion
+ * @return salida
+ */
     public Thing getSalida() {
         return salida;
     }
 
+      /**
+ * setSalida
+ * descripcion
+ */
     public void setSalida(Thing salida) {
         this.salida = salida;
     }

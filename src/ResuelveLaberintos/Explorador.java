@@ -11,19 +11,36 @@ import becker.robots.*;
  *
  * @author Bencardino Perdomo
  */
-public class Explorador extends Robot{
+public class Explorador extends Robot {
     
+    
+      /**
+ * Explorador
+ * descripcion
+ * @param city descripcion
+ * @param i
+ * @param i1 
+ * @param drctn
+ */
     public Explorador(City city, int i, int i1, Direction drctn) {
         super(city, i, i1, drctn, 1);
         super.setSpeed(12.5);
     }
-    
+
+     /**
+ * turnRight
+ * descripcion
+ */
     public void turnRight () {
         this.turnLeft();
         this.turnLeft();
         this.turnLeft();
     }
-        
+    
+ /**
+ * rightIsClear
+ * descripcion
+ */    
     public boolean rightIsClear () {
         boolean libre = true;
         for (Thing wall: this.examineThings()) {
