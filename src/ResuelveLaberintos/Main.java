@@ -16,16 +16,19 @@ public class Main {
         
     public static void main(String[] args) {
         
-        Random rand = new Random();
-        
-        int max = 18;
-        int numCalles = rand.nextInt(max)+2;
-        int numAvenidas = rand.nextInt(max)+2;
-        double dificultad = rand.nextDouble();
-        
-        Laberinto nacho = new Laberinto(numCalles, numAvenidas, dificultad, dificultad);
-        Explorador andrew = new Explorador(nacho, numCalles-1, 0, Direction.EAST);
-        andrew.ResolverLaberinto();
+        for (int i = 0; i < 5; i++) {
+            Random rand = new Random();
+            
+            int max = 18;
+            int numCalles = rand.nextInt(max) + 2;
+            int numAvenidas = rand.nextInt(max) + 2;
+            double twistines = rand.nextDouble();
+            double ramificacion = rand.nextDouble();
+            
+            Laberinto nacho = new Laberinto(numCalles, numAvenidas, twistines, ramificacion);
+            Explorador andrew = new Explorador(nacho, numCalles - 1, 0, Direction.EAST);
+            andrew.ResolverLaberinto();
+        }
         
     }
     

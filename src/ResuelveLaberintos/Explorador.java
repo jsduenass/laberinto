@@ -15,7 +15,7 @@ public class Explorador extends Robot{
     
     public Explorador(City city, int i, int i1, Direction drctn) {
         super(city, i, i1, drctn, 1);
-        super.setSpeed(4.0);
+        super.setSpeed(12.5);
     }
     
     public void turnRight () {
