@@ -13,8 +13,8 @@ import becker.robots.*;
  */
 public class Explorador extends Robot{
     
-    public Explorador(City city, int i, int i1, Direction drctn, int i2) {
-        super(city, i, i1, drctn, i2);
+    public Explorador(City city, int i, int i1, Direction drctn) {
+        super(city, i, i1, drctn, 1);
         super.setSpeed(4.0);
     }
     
@@ -23,41 +23,29 @@ public class Explorador extends Robot{
         this.turnLeft();
         this.turnLeft();
     }
-    
-    public Direction dirDerecha () {
-        //función que devulve que direccion está a la derecha del robot        
-        switch (this.getDirection()){
-            
-            case EAST:
-                return Direction.SOUTH;                
-            
-            case SOUTH:
-                return Direction.WEST;
-            
-            case WEST:
-                return Direction.NORTH;
-            
-            case NORTH:
-                return Direction.EAST;
-                
-            default:
-                return null;          
-        }        
-    }
         
     public boolean rightIsClear () {
         boolean libre = true;
-        for (Thing wall: this.examineThings(IPredicate.aWall)) {
+        for (Thing wall: this.examineThings()) {
             //ciclo que lee todas las paredes que hay en la casilla
-            if(wall.blocksIntersectionExit(this.dirDerecha())){
+            if(wall.blocksIntersectionEntry(this.getDirection().right())){
                 //condicional que determina si tiene la derecha libre
                 libre = false;
+                
+            }
+        }
+        for (Thing wall : this.getIntersection().getNeighbor(this.getDirection().right()).examineThings()) {
+            
+            if (wall.blocksIntersectionEntry(this.getDirection().left())) {
+                
+                libre = false;
+                
             }
         }
         return libre;
     }
     
-    public void hacerMovimineto () {
+    private void hacerMovimineto () {
         if (this.rightIsClear()) {
             //si no tiene pared a la derecha gira a la derecha
             this.turnRight();
@@ -72,9 +60,10 @@ public class Explorador extends Robot{
     }
     
     public void ResolverLaberinto () {
-        while(!this.canPickThing()){
+//        this.putThing();
+        do {
             this.hacerMovimineto();
-        }
+        }while(!this.canPickThing());
         this.setLabel("Easy");
     }
 }
