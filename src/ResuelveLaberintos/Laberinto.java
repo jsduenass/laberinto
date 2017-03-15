@@ -40,11 +40,13 @@ public class Laberinto extends MazeCity {
         return salida;
     }
 
-      /**
+ /**
  *setSalida 
+ * @param salida es una cosa que indicará un punto donde se acaba el laberinto
  */
     public void setSalida(Thing salida) {
         this.salida = salida;
+        this.salida.setColor(Color.BLUE);
     }
     
 }

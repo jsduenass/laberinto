@@ -40,6 +40,7 @@ public class Explorador extends Robot {
  /**
  * rightIsClear
  * dermina si existe una pared al lado derecho del robot
+ * @return el valor false si tiene una pared a la derecha, true en otro caso
  */    
     public boolean rightIsClear () {
         boolean libre = true;
@@ -64,6 +65,9 @@ public class Explorador extends Robot {
   /**
  * hacerMovimiento
  * determina  el movimiento del robot,si debe avanzar,girar a la derecha o girar a la izquierda
+ * dependiendo de cada caso posible en los que se puede encontrar el robot
+ * sin pared a la derecha, con pared a la dercha pero sin pared al frente y
+ * con pared a la derecha y pared al frente
  */
     private void hacerMovimiento () {
         if (this.rightIsClear()) {
@@ -81,6 +85,7 @@ public class Explorador extends Robot {
     /**
  * ResolverLaberinto
  * recorre el laberinto guiandose por la pared derecha
+ * se detiene al momento de encontrar la cosa en la salida
  */ 
     public void ResolverLaberinto () {
 //        this.putThing();
